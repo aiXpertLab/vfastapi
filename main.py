@@ -3,8 +3,8 @@ from fastapi.responses import HTMLResponse
 
 
 app = FastAPI(
-    title="Vercel + FastAPI",
-    description="Vercel + FastAPI",
+    title="VVV + FastAPI",
+    description="VVV + FastAPI",
     version="1.0.0",
 )
 
@@ -41,7 +41,7 @@ def read_root():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vercel + FastAPI</title>
+        <title>VVV + FastAPI</title>
         <link rel="icon" type="image/x-icon" href="/favicon.ico">
         <style>
             * {
@@ -302,7 +302,7 @@ def read_root():
     <body>
         <header>
             <nav>
-                <a href="/" class="logo">Vercel + FastAPI</a>
+                <a href="/" class="logo">VVV + FastAPI</a>
                 <div class="nav-links">
                     <a href="/docs">API Docs</a>
                     <a href="/api/data">API</a>
@@ -311,7 +311,7 @@ def read_root():
         </header>
         <main>
             <div class="hero">
-                <h1>Vercel + FastAPI</h1>
+                <h1>VVV + FastAPI</h1>
                 <div class="hero-code">
                     <pre><code><span class="keyword">from</span> <span class="module">fastapi</span> <span class="keyword">import</span> <span class="class">FastAPI</span>
 
@@ -319,7 +319,7 @@ def read_root():
 
 <span class="decorator">@app.get</span>(<span class="string">"/"</span>)
 <span class="keyword">def</span> <span class="function">read_root</span>():
-    <span class="keyword">return</span> {<span class="string">"Python"</span>: <span class="string">"on Vercel"</span>}</code></pre>
+    <span class="keyword">return</span> {<span class="string">"Python"</span>: <span class="string">"on VVV"</span>}</code></pre>
                 </div>
             </div>
             
