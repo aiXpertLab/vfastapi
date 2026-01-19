@@ -14,10 +14,9 @@ def get_sample_data():
     return {
         "data": [
             {"id": 1, "name1": "Sample Item 1", "value": 100},
-            {"id": 2, "name2": "Sample Item 2", "value": 200},
             {"id": 3, "name3": "Sample Item 3", "value": 300}
         ],
-        "total": 3,
+        "total": 2,
         "timestamp": "2024-01-01T00:00:00Z"
     }
 
