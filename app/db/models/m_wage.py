@@ -2,8 +2,6 @@ from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import (String,    Integer,    Float, Date,    Text,    Index,)
 from sqlalchemy.dialects.postgresql import JSONB
 
-from pgvector.sqlalchemy import Vector
-
 from app.db.models.m_base import Base, BaseMixin
 
 
