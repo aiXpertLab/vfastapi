@@ -11,8 +11,8 @@ class _Settings(BaseSettings):
     # 公共 API 只有 get_settings_singleton()
 
     # Database
-    PG_ASYNC: str = "postgresql+asyncpg://username:pwd@local/icedb"
-    PG_SYNC: str = "postgresql://postgres:password@localhost/invoicedb"
+    ASYNC_HS: str = "postgresql+asyncpg://username:pwd@local/icedb"
+    SYNC_HS: str = "postgresql://postgres:password@localhost/invoicedb"
     DB_POOL_SIZE: int = 5
     DB_MAX_OVERFLOW: int = 10
     DB_ECHO: bool = False
@@ -33,7 +33,6 @@ class _Settings(BaseSettings):
 
     # Security
     SECRET_KEY: str = "your-secret-key-here-change-in-production"
-    OpenAPI_KEY: Optional[str] = None
 
     model_config = SettingsConfigDict(
         env_file=".env",
