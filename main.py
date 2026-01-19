@@ -12,7 +12,7 @@ app = FastAPI(
 def read_root():
     return {
         "data": [
-            {"id": 1, "name1": "Sample Item 1", "value": 100},
+            {"id": 1, "nam3e1": "Sample Item 1", "value": 100},
             {"id": 3, "name3": "Sample Item 3", "value": 300}
         ],
         "total": 2,
