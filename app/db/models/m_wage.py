@@ -6,7 +6,7 @@ from app.db.models.m_base import Base, BaseMixin
 
 
 class CanadaWage(Base, BaseMixin):
-    __tablename__ = "canada_wages"
+    __tablename__ = "wages"
 
     __table_args__ = (
         Index("idx_wages_noc_code", "noc_code"),
