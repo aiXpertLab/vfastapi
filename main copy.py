@@ -1,16 +1,11 @@
-from app.app import create_app
-app = create_app()  #Dependency injection
+from fastapi import FastAPI
 
 
-
-# from fastapi import FastAPI
-
-
-# app = FastAPI(
-#     title="VVV + FastAPI",
-#     description="VVV + FastAPI",
-#     version="1.0.0",
-# )
+app = FastAPI(
+    title="VVV + FastAPI",
+    description="VVV + FastAPI",
+    version="1.0.0",
+)
 
 
 @app.get("/")
@@ -20,6 +15,6 @@ def read_root():
             {"id": 1, "nam3e1": "Sample Item 1", "value": 100},
             {"id": 3, "name3": "Sample Item 3", "value": 300}
         ],
-        "total": 22,
+        "total": 2,
         "timestamp": "2024-01-01T00:00:00Z"
     }
