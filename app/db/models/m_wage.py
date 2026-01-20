@@ -4,7 +4,7 @@ from app.db.models.m_base import Base, BaseMixin
 
 
 class CanadaWage(Base, BaseMixin):
-    __tablename__ = "wages"
+    __tablename__ = "canada_wage_2012_2025"
 
     __table_args__ = (
         Index("idx_wages_noc_cnp", "noc_cnp"),

@@ -7,14 +7,14 @@ from app.service.ser_wage import WageService
 wageRou = APIRouter()
 
 
-@wageRou.post("/upload")
-async def upload_reports(
-    file: UploadFile = File(...),
-    db: AsyncSession = Depends(get_db),
-):
-    content = await file.read()
-    await WageService.upload_csv(db, content)
-    return {"status": "ok"}
+# @wageRou.post("/upload")
+# async def upload_reports(
+#     file: UploadFile = File(...),
+#     db: AsyncSession = Depends(get_db),
+# ):
+#     content = await file.read()
+#     await WageService.upload_csv(db, content)
+#     return {"status": "ok"}
 
 
 @wageRou.get("/")

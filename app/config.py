@@ -11,8 +11,9 @@ class _Settings(BaseSettings):
     # 公共 API 只有 get_settings_singleton()
 
     # Database
-    ASYNC_HS: str = "postgresql+asyncpg://username:pwd@local/icedb"
-    SYNC_HS: str = "postgresql://postgres:password@localhost/invoicedb"
+    LAKE_ASYNC: str = "postgresql+asyncpg://username:pwd@local/icedb"
+    LAKE_SYNC: str = "postgresql://postgres:password@localhost/invo"
+
     DB_POOL_SIZE: int = 5
     DB_MAX_OVERFLOW: int = 10
     DB_ECHO: bool = False
