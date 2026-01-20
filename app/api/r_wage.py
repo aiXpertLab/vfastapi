@@ -16,19 +16,13 @@ async def upload_reports(
     await WageService.upload_csv(db, content)
     return {"status": "ok"}
 
-@wageRou.post("/add")
-async def create_wage(
-    payload: dict,
-    db: AsyncSession = Depends(get_db),
-):
-    return await WageService.create(db, payload)
-
 
 @wageRou.get("/")
 async def list_reports(
     db: AsyncSession = Depends(get_db),
 ):
     return await WageService.list_wages(db)
+
 
 
 @wageRou.get("/pagination")
@@ -44,42 +38,3 @@ async def list_wages(
     )
     
     
-# FastAPI PATCH endpoint (required)
-@wageRou.patch("/{report_id}")
-async def update_report(
-    report_id: str,
-    payload: dict,
-    db: AsyncSession = Depends(get_db),
-):
-    return await WageService.update_partial(db, report_id, payload)
-
-
-
-
-@wageRou.get("/list_filtered_reports")
-async def list_filtered_reports(
-    page: int = 1,
-    page_size: int = 10,
-    sort_by: str | None = None,
-    sort_order: str | None = "asc",
-    source: str | None = None,
-    deal_stage: str | None = None,
-    lead_owner: str | None = None,
-    first_name: str | None = None,
-    last_name: str | None = None,
-    company: str | None = None,
-    db: AsyncSession = Depends(get_db),
-):
-    return await WageService.list_filtered_reports(
-        db,
-        page=page,
-        page_size=page_size,
-        sort_by=sort_by,
-        sort_order=sort_order,
-        source=source,
-        deal_stage=deal_stage,
-        lead_owner=lead_owner,
-        first_name=first_name,
-        last_name=last_name,
-        company=company,
-    )

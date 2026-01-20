@@ -13,6 +13,7 @@ class WageRepository:
         db.add_all(wages)
         await db.commit()
 
+
     @staticmethod
     async def list_wages(
         db: AsyncSession,
