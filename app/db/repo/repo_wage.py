@@ -19,4 +19,4 @@ class WageRepository:
         db: AsyncSession,
     ) -> list[CanadaWage]:
         result = await db.execute(select(CanadaWage))
-        return result.scalars().all()
+        return result.scalars().all()   # type: ignore[return-value]

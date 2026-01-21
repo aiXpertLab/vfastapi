@@ -18,4 +18,4 @@ class ReportRepository:
         db: AsyncSession,
     ) -> list[Report]:
         result = await db.execute(select(Report))
-        return result.scalars().all()
+        return result.scalars().all()   # type: ignore[return-value]

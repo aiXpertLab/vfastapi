@@ -16,7 +16,7 @@ class WageEmbeddingRepository:
         {source_id, chunk_en, chunk_fr}
         """
         result = await db.execute(select(CanadaWage))
-        rows: List[CanadaWage] = result.scalars().all()
+        rows: List[CanadaWage] = result.scalars().all() # type: ignore[return-value]
 
         chunks = []
 
@@ -63,6 +63,7 @@ Employés avec avantages (%): {row.employeeswithnonwagebenefit_pct}
 
         return chunks
 
+
     @staticmethod
     async def bulk_insert_embeddings(
         db: AsyncSession,
@@ -75,7 +76,8 @@ Employés avec avantages (%): {row.employeeswithnonwagebenefit_pct}
         values = [
             {
                 "source_id": e["source_id"],
-                "chunk": e["chunk"],
+                "chunk_en": e["chunk_en"],
+                "chunk_fr": e["chunk_fr"],
                 "embedding": e["embedding"],  # as float[]
             }
             for e in embeddings
