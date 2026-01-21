@@ -95,6 +95,7 @@ Employés avec avantages (%): {row.employeeswithnonwagebenefit_pct}
         stmt = select(CanadaWageEmbedding).where(
             CanadaWageEmbedding.embedding == [0.0] * 384
         )
+        stmt = stmt.limit(1500)  # process in batches of 100
         res = await db.execute(stmt)
         return res.scalars().all()
 
