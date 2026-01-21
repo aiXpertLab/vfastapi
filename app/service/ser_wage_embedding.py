@@ -3,7 +3,7 @@ from typing import List, Dict
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.repo.repo_wage_embedding import WageEmbeddingRepository
 
-class WageService:
+class WageEmbeddingService:
     @staticmethod
     async def build_and_store_embeddings(
         db: AsyncSession,
@@ -25,3 +25,19 @@ class WageService:
 
         await WageEmbeddingRepository.bulk_insert_embeddings(db, embeddings)
         return len(embeddings)
+
+
+    @staticmethod   
+    async def embed_all_dummy(
+        db: AsyncSession,
+        embed_fn,
+    ) -> int:
+        rows = await WageEmbeddingRepository.get_all_unembedded(db)
+
+        for r in rows:
+            text = r.chunk_en  # or combine EN + FR if you want
+            emb = await embed_fn(text)
+            await WageEmbeddingRepository.update_embedding(db, r.id, emb)
+
+        await db.commit()
+        return len(rows)

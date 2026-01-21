@@ -14,6 +14,9 @@ class _Settings(BaseSettings):
     LAKE_ASYNC: str = "postgresql+asyncpg://username:pwd@local/icedb"
     LAKE_SYNC: str = "postgresql://postgres:password@localhost/invo"
 
+    HF_API_KEY: str = ""
+    HF_EMBED_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
+
     DB_POOL_SIZE: int = 5
     DB_MAX_OVERFLOW: int = 10
     DB_ECHO: bool = False

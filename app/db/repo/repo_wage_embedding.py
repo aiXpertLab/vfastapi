@@ -4,6 +4,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import List, Dict
 from app.db.models.m_wage import CanadaWage
+from app.db.models.m_wage_embedding import CanadaWageEmbedding
+
 
 
 class WageEmbeddingRepository:
@@ -88,3 +90,22 @@ Employés avec avantages (%): {row.employeeswithnonwagebenefit_pct}
 
         db.add_all([CanadaWageEmbedding(**v) for v in values])
         await db.commit()
+
+
+    @staticmethod
+    async def get_all_unembedded(db: AsyncSession):
+        stmt = select(CanadaWageEmbedding).where(
+            CanadaWageEmbedding.embedding == [0.0] * 384
+        )
+        res = await db.execute(stmt)
+        return res.scalars().all()
+
+    @staticmethod
+    async def update_embedding(
+        db: AsyncSession,
+        row_id,
+        embedding: list[float],
+    ):
+        row = await db.get(CanadaWageEmbedding, row_id)
+        row.embedding = embedding    # type: ignore
+        db.add(row)
