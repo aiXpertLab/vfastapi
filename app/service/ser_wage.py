@@ -30,7 +30,7 @@ class WageService:
                 Province: {row['prov']}
                 ER code: {row.get('ER_Code_Code_RE')}
                 Reference period: {row.get('Reference_Period')}
-                Low wage: {row.get('Low_Wage_Salaire_Minium')}
+                Low wage: {row.get('Low_Wage_Salaire_Minimum')}
                 Median wage: {row.get('Median_Wage_Salaire_Median')}
                 High wage: {row.get('High_Wage_Salaire_Maximal')}
                 Average wage: {row.get('Average_Wage_Salaire_Moyen')}
@@ -84,7 +84,7 @@ class WageService:
                 er_code=row.get("ER_Code_Code_RE"),
                 er_name_en=row.get("ER_Name"),
                 er_name_fr=row.get("Nom_RE"),
-                low_wage=to_int(row.get("Low_Wage_Salaire_Minium")),
+                low_wage=to_int(row.get("Low_Wage_Salaire_Minimum")),
                 median_wage=to_int(row.get("Median_Wage_Salaire_Median")),
                 high_wage=to_int(row.get("High_Wage_Salaire_Maximal")),
                 average_wage=to_int(row.get("Average_Wage_Salaire_Moyen")),

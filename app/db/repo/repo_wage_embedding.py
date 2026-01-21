@@ -7,7 +7,6 @@ from app.db.models.m_wage import CanadaWage
 from app.db.models.m_wage_embedding import CanadaWageEmbedding
 
 
-
 class WageEmbeddingRepository:
     @staticmethod
     async def build_chunks(db: AsyncSession) -> List[Dict]:
@@ -18,7 +17,8 @@ class WageEmbeddingRepository:
         {source_id, chunk_en, chunk_fr}
         """
         result = await db.execute(select(CanadaWage))
-        rows: List[CanadaWage] = result.scalars().all() # type: ignore[return-value]
+        # type: ignore[return-value]
+        rows: List[CanadaWage] = result.scalars().all()
 
         chunks = []
 
@@ -30,7 +30,7 @@ NOC: {row.noc_cnp}
 Title: {row.noc_title_eng}
 Median wage: {row.median_wage_salaire_median}
 Average wage: {row.average_wage_salaire_moyen}
-Low wage: {row.low_wage_salaire_minium}
+Low wage: {row.low_wage_salaire_minimum}
 High wage: {row.high_wage_salaire_maximal}
 Quartile1 wage: {row.quartile1_wage_salaire_quartile1}
 Quartile3 wage: {row.quartile3_wage_salaire_quartile3}
@@ -48,7 +48,7 @@ NOC: {row.noc_cnp}
 Titre: {row.noc_title_fra}
 Salaire médian: {row.median_wage_salaire_median}
 Salaire moyen: {row.average_wage_salaire_moyen}
-Salaire minimum: {row.low_wage_salaire_minium}
+Salaire minimum: {row.low_wage_salaire_minimum}
 Salaire maximum: {row.high_wage_salaire_maximal}
 1er quartile: {row.quartile1_wage_salaire_quartile1}
 3e quartile: {row.quartile3_wage_salaire_quartile3}
@@ -64,7 +64,6 @@ Employés avec avantages (%): {row.employeeswithnonwagebenefit_pct}
             )
 
         return chunks
-
 
     @staticmethod
     async def bulk_insert_embeddings(
@@ -90,7 +89,6 @@ Employés avec avantages (%): {row.employeeswithnonwagebenefit_pct}
 
         db.add_all([CanadaWageEmbedding(**v) for v in values])
         await db.commit()
-
 
     @staticmethod
     async def get_all_unembedded(db: AsyncSession):

@@ -26,7 +26,7 @@ class CanadaWage(Base, BaseMixin):
     nom_re: Mapped[str] = mapped_column(String(255), nullable=True)
 
     # ---- Wages ----
-    low_wage_salaire_minium: Mapped[int] = mapped_column(
+    low_wage_salaire_minimum: Mapped[int] = mapped_column(
         Integer, nullable=True)
     median_wage_salaire_median: Mapped[int] = mapped_column(
         Integer, nullable=True)
