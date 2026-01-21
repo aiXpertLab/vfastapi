@@ -9,20 +9,17 @@ class _Settings(BaseSettings):
     # Always use get_settings_singleton() to access application configuration.
     #     Settings 是实现细节，不是公共 API
     # 公共 API 只有 get_settings_singleton()
+    OPENAI_API_KEY: Optional[str] = None
+    SERPERDEV_API_KEY: Optional[str] = None
 
     # Database
     LAKE_ASYNC: str = "postgresql+asyncpg://username:pwd@local/icedb"
     LAKE_SYNC: str = "postgresql://postgres:password@localhost/invo"
 
-    HF_API_KEY: str = ""
-    HF_EMBED_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
-
     DB_POOL_SIZE: int = 5
     DB_MAX_OVERFLOW: int = 10
     DB_ECHO: bool = False
 
-    OPENAI_API_KEY: Optional[str] = None
-    SERPERDEV_API_KEY: Optional[str] = None
 
     # Seed Data
     SEED_DATA: bool = True  # Whether to seed data on startup
