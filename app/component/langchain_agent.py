@@ -4,7 +4,8 @@ import logging
 
 from langchain_openai import ChatOpenAI
 from langchain.tools import tool
-from langchain.agents import create_agent, AgentExecutor
+from langchain.agents import create_agent
+from langchain.agents import AgentExecutor
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.messages import HumanMessage, AIMessage
 
