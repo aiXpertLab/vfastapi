@@ -18,5 +18,6 @@ class WageRepository:
     async def list_wages(
         db: AsyncSession,
     ) -> list[CanadaWage]:
-        result = await db.execute(select(CanadaWage))
+        stmt = select(CanadaWage).limit(10)
+        result = await db.execute(stmt)
         return result.scalars().all()   # type: ignore[return-value]
