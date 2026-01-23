@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from fastapi.responses import FileResponse
+from fastapi.responses import RedirectResponse
 # from app.api.r_report import reportRou
 
 from app.api.r_wage_table import wageRou
@@ -10,7 +10,7 @@ rou = APIRouter()
 
 @rou.get("/")
 def rouGet():
-    return FileResponse("/public/main.html")
+    return RedirectResponse(url="https://ainvoaice.com")
 
 
 rou.include_router(wageRou, prefix="/wages", tags=["Wages"])
