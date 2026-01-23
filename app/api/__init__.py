@@ -10,7 +10,7 @@ rou = APIRouter()
 
 @rou.get("/")
 def rouGet():
-    return FileResponse("public/main.html")
+    return FileResponse("/public/main.html")
 
 
 rou.include_router(wageRou, prefix="/wages", tags=["Wages"])
